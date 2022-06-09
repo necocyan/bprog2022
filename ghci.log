@@ -1,0 +1,277 @@
+GHCi, version 9.0.2: https://www.haskell.org/ghc/  :? for help
+Loaded GHCi configuration from /home/nobsun/bprog2022/.ghci
+2022-05-19 15:41:20.772116087
+>>> GHCi, version 9.0.2: https://www.haskell.org/ghc/  :? for help
+Loaded GHCi configuration from /home/nobsun/bprog2022/.ghci
+2022-05-19 15:52:29.293135847
+>>> 23 + 5
+28
+2022-05-19 15:54:06.040737748
+>>> 3 + 2 * 5
+13
+2022-05-19 15:54:54.416490458
+>>> (3 + 2) * 5
+25
+2022-05-19 15:55:17.862866578
+>>> 5 - 4 - 8
+-7
+2022-05-19 15:55:40.88854467
+>>> sqrt 2
+1.4142135623730951
+2022-05-19 15:59:43.315429099
+>>> double 3
+
+<interactive>:6:1: error: Variable not in scope: double :: t0 -> t
+2022-05-19 16:01:58.223616113
+>>> GHCi, version 9.0.2: https://www.haskell.org/ghc/  :? for help
+Loaded GHCi configuration from /home/nobsun/bprog2022/.ghci
+2022-05-26 15:02:02.530849219
+>>> maxBound :: Int
+9223372036854775807
+2022-05-26 15:03:22.749538305
+>>> 2 ^ 63 - 1
+9223372036854775807
+2022-05-26 15:04:58.349066392
+>>> minBound :: Int
+-9223372036854775808
+2022-05-26 15:05:27.615619199
+>>> :e src/First.hs
+   1  module First where
+   2  
+   3  double :: Int -> Int
+   4  double x = x + x
+Ok, no modules loaded.
+2022-05-26 15:49:04.221837258
+>>> :l src/First.hs
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+Ok, one module loaded.
+2022-05-26 15:49:04.263390127
+>>> :e src/First.hs
+   1  module First where
+   2  
+   3  double :: Int -> Int
+   4  double x = x + y
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+
+src/First.hs:4:16: error: Variable not in scope: y :: Int
+  |
+4 | double x = x + y
+  |                ^
+Failed, no modules loaded.
+2022-05-26 15:52:34.955145442
+>>> :l src/First.hs
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+
+src/First.hs:4:16: error: Variable not in scope: y :: Int
+  |
+4 | double x = x + y
+  |                ^
+Failed, no modules loaded.
+2022-05-26 15:52:35.053256977
+>>> :e src/First.hs
+   1  module First where
+   2  
+   3  double :: Int -> Int
+   4  double x = x + X
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+
+src/First.hs:4:16: error: Data constructor not in scope: X :: Int
+  |
+4 | double x = x + X
+  |                ^
+Failed, no modules loaded.
+2022-05-26 15:53:52.172492083
+>>> :l src/First.hs
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+
+src/First.hs:4:16: error: Data constructor not in scope: X :: Int
+  |
+4 | double x = x + X
+  |                ^
+Failed, no modules loaded.
+2022-05-26 15:53:52.271256218
+>>> :e
+   1  module First where
+   2  
+   3  double :: Int -> Int
+   4  double x = x + x
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+Ok, one module loaded.
+2022-05-26 15:55:54.729844766
+>>> double 3
+6
+2022-05-26 15:56:11.587013323
+>>> double 123
+246
+2022-05-26 15:56:17.378585928
+>>> double (1 + 3)
+8
+2022-05-26 15:56:39.045936542
+>>> double (1 + 2)
+6
+2022-05-26 15:57:11.788210761
+>>> :q
+Leaving GHCi.
+GHCi, version 9.0.2: https://www.haskell.org/ghc/  :? for help
+Loaded GHCi configuration from /home/nobsun/bprog2022/.ghci
+2022-06-09 14:55:17.295263499
+>>> 2 + 3 * 4
+14
+2022-06-09 14:58:35.596465284
+>>> (2 + 3) * 4
+20
+2022-06-09 15:00:13.884062482
+>>> :i sqrt
+type Floating :: * -> Constraint
+class Fractional a => Floating a where
+  ...
+  sqrt :: a -> a
+  ...
+  	-- Defined in ‘GHC.Float’
+2022-06-09 15:00:45.480403483
+>>> sqrt (3 ^ 2 + 4 ^ 2)
+5.0
+2022-06-09 15:05:14.269402564
+>>> sqrt (25 :: Int)
+
+<interactive>:5:1: error:
+    • No instance for (Floating Int) arising from a use of ‘sqrt’
+    • In the expression: sqrt (25 :: Int)
+      In an equation for ‘it’: it = sqrt (25 :: Int)
+2022-06-09 15:08:16.844054075
+>>> sqrt (25 :: Double)
+5.0
+2022-06-09 15:09:12.630902577
+>>> sqrt 25
+5.0
+2022-06-09 15:10:00.273123424
+>>> hoge 25 :: Int
+
+<interactive>:8:1: error: Variable not in scope: hoge :: t0 -> Int
+2022-06-09 15:13:24.960189258
+>>> head [1, 2, 3]
+1
+2022-06-09 15:46:13.785280883
+>>> head [3, 1, 4, 1, 5]
+3
+2022-06-09 15:46:46.589983079
+>>> head []
+*** Exception: Prelude.head: empty list
+2022-06-09 15:48:29.759986305
+>>> hoge = [3, 1, 4, 1, 5] :: [Int]
+2022-06-09 15:50:32.740499532
+>>> hoge
+[3,1,4,1,5]
+2022-06-09 15:50:53.725292698
+>>> head hoge
+3
+2022-06-09 15:51:23.183498655
+>>> tail hoge
+[1,4,1,5]
+2022-06-09 15:51:29.382625393
+>>> tail []
+*** Exception: Prelude.tail: empty list
+2022-06-09 15:52:36.289909716
+>>> hoge !! 0
+3
+2022-06-09 15:55:02.270069945
+>>> hoge !! 2
+4
+2022-06-09 15:56:14.993859377
+>>> take 3 hoge
+[3,1,4]
+2022-06-09 15:56:53.437305549
+>>> hoge
+[3,1,4,1,5]
+2022-06-09 15:56:59.082004809
+>>> drop 3 hoge
+[1,5]
+2022-06-09 15:57:18.051594993
+>>> hoge 5 hoge
+
+<interactive>:22:1: error:
+    • Couldn't match expected type: t0 -> [Int] -> t
+                  with actual type: [Int]
+    • The function ‘hoge’ is applied to two value arguments,
+        but its type ‘[Int]’ has none
+      In the expression: hoge 5 hoge
+      In an equation for ‘it’: it = hoge 5 hoge
+    • Relevant bindings include it :: t (bound at <interactive>:22:1)
+2022-06-09 15:58:20.146928867
+>>> hoge !! 5
+*** Exception: Prelude.!!: index too large
+2022-06-09 15:58:51.056271745
+>>> take 10 hoge
+[3,1,4,1,5]
+2022-06-09 15:59:17.401010538
+>>> drop 10 hoge
+[]
+2022-06-09 15:59:47.976248
+>>> length head
+
+<interactive>:26:1: error:
+    • No instance for (Foldable ((->) [a0]))
+        arising from a use of ‘length’
+    • In the expression: length head
+      In an equation for ‘it’: it = length head
+2022-06-09 16:00:51.539626858
+>>> length hoge
+5
+2022-06-09 16:01:05.779585783
+>>> length []
+0
+2022-06-09 16:01:22.747642003
+>>> sum hoge
+14
+2022-06-09 16:02:03.837617214
+>>> product hoge
+60
+2022-06-09 16:03:04.46459835
+>>> hoge ++ hoe
+
+<interactive>:31:9: error:
+    • Variable not in scope: hoe :: [Int]
+    • Perhaps you meant ‘hoge’ (line 12)
+2022-06-09 16:04:42.443304254
+>>> hoge ++ hoge
+[3,1,4,1,5,3,1,4,1,5]
+2022-06-09 16:04:54.017840124
+>>> reverse hoge
+[5,1,4,1,3]
+2022-06-09 16:05:29.172902545
+>>> :e src/First.hs
+   1  module First where
+   2  
+   3  double :: Int -> Int
+   4  double x = x + x
+Ok, no modules loaded.
+2022-06-09 16:07:32.584753235
+>>> :load src/First.hs
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+Ok, one module loaded.
+2022-06-09 16:07:32.655211493
+>>> double 3 + 3
+9
+2022-06-09 16:07:51.953015851
+>>> double (3 + 3)
+12
+2022-06-09 16:11:07.488205241
+>>> :e
+   1  module First where
+   2  
+   3  double :: Int -> Int
+   4  double x = x + x
+   5  
+   6  quadruple :: Int -> Int
+   7  quadruple x = double (double x)
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+Ok, one module loaded.
+2022-06-09 16:14:15.50389674
+>>> quadruple 2
+8
+2022-06-09 16:14:35.42338385
+>>> quadruple (2 + 3)
+20
+2022-06-09 16:14:49.544716523
+>>> :quit
+Leaving GHCi.

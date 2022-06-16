@@ -275,3 +275,228 @@ Ok, one module loaded.
 2022-06-09 16:14:49.544716523
 >>> :quit
 Leaving GHCi.
+GHCi, version 9.0.2: https://www.haskell.org/ghc/  :? for help
+Loaded GHCi configuration from /home/nobsun/bprog2022/.ghci
+2022-06-16 15:01:30.006237607
+>>> take 3 [3,1,4,1,5]
+[3,1,4]
+2022-06-16 15:04:05.807324383
+>>> :e src/First.hs
+   1  module First where
+   2  
+   3  double :: Int -> Int
+   4  double x = x + x
+   5  
+   6  quadruple :: Int -> Int
+   7  quadruple x = double (double x)
+Ok, no modules loaded.
+2022-06-16 15:10:47.27279234
+>>> :l src/First.hs
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+Ok, one module loaded.
+2022-06-16 15:10:47.353960807
+>>> 
+2022-06-16 15:11:37.759481526
+>>> double
+
+<interactive>:5:1: error:
+    • No instance for (Show (Int -> Int)) arising from a use of ‘print’
+        (maybe you haven't applied a function to enough arguments?)
+    • In a stmt of an interactive GHCi command: print it
+2022-06-16 15:12:56.018764304
+>>> doule
+
+<interactive>:6:1: error:
+    • Variable not in scope: doule
+    • Perhaps you meant ‘double’ (line 4)
+2022-06-16 15:13:22.050802945
+>>> take (double 2) [1,2,3,4,5]
+[1,2,3,4]
+2022-06-16 15:14:55.935697819
+>>> [1 .. 10]
+[1,2,3,4,5,6,7,8,9,10]
+2022-06-16 15:20:11.884757221
+>>> :e
+   1  module First where
+   2  
+   3  double :: Int -> Int
+   4  double x = x + x
+   5  
+   6  quadruple :: Int -> Int
+   7  quadruple x = double (double x)
+   8  
+   9  factorial :: Integer -> Integer
+  10  factorial n = product [1 .. n]
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+Ok, one module loaded.
+2022-06-16 15:21:00.54852198
+>>> factorial 3
+6
+2022-06-16 15:22:07.629360104
+>>> factorial 4
+24
+2022-06-16 15:22:14.151193197
+>>> :e
+   1  module First where
+   2  
+   3  double :: Int -> Int
+   4  double x = x + x
+   5  
+   6  quadruple :: Int -> Int
+   7  quadruple x = double (double x)
+   8  
+   9  factoria1 :: Integer -> Integer
+  10  factorial n = product [1 .. n]
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+
+src/First.hs:9:1: error:
+    The type signature for ‘factoria1’ lacks an accompanying binding
+      Perhaps you meant ‘factorial’ (Defined at src/First.hs:10:1)
+  |
+9 | factoria1 :: Integer -> Integer
+  | ^^^^^^^^^
+Failed, no modules loaded.
+2022-06-16 15:28:16.397659099
+>>> :e
+   1  module First where
+   2  
+   3  double :: Int -> Int
+   4  double x = x + x
+   5  
+   6  quadruple :: Int -> Int
+   7  quadruple x = double (double x)
+   8  
+   9  factorial :: Integer -> Integer
+  10  factorial n = product [1 .. n]
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+Ok, one module loaded.
+2022-06-16 15:29:20.913859286
+>>> :e
+   1  module First where
+   2  
+   3  double :: Int -> Int
+   4  double x = x + x
+   5  
+   6  quadruple :: Int -> Int
+   7  quadruple x = double (double x)
+   8  
+   9  factorial :: Integer -> Integer
+  10  factorial n = product [1 .. n]
+  11  
+  12  average :: Int -> Int
+  13  average xs = sum xs `div` length xs
+  14  
+  15  ave :: Int -> Int -> Int
+  16  ave xs = div (sum xs) (length xs)
+  17  
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+
+src/First.hs:13:18: error:
+    • Couldn't match expected type ‘t2 Int’ with actual type ‘Int’
+    • In the first argument of ‘sum’, namely ‘xs’
+      In the first argument of ‘div’, namely ‘sum xs’
+      In the expression: sum xs `div` length xs
+   |
+13 | average xs = sum xs `div` length xs
+   |                  ^^
+
+src/First.hs:13:34: error:
+    • Couldn't match expected type ‘t3 a1’ with actual type ‘Int’
+    • In the first argument of ‘length’, namely ‘xs’
+      In the second argument of ‘div’, namely ‘length xs’
+      In the expression: sum xs `div` length xs
+   |
+13 | average xs = sum xs `div` length xs
+   |                                  ^^
+
+src/First.hs:16:10: error:
+    • Couldn't match expected type ‘Int -> Int’ with actual type ‘Int’
+    • Possible cause: ‘div’ is applied to too many arguments
+      In the expression: div (sum xs) (length xs)
+      In an equation for ‘ave’: ave xs = div (sum xs) (length xs)
+   |
+16 | ave xs = div (sum xs) (length xs)
+   |          ^^^^^^^^^^^^^^^^^^^^^^^^
+
+src/First.hs:16:19: error:
+    • Couldn't match expected type ‘t0 Int’ with actual type ‘Int’
+    • In the first argument of ‘sum’, namely ‘xs’
+      In the first argument of ‘div’, namely ‘(sum xs)’
+      In the expression: div (sum xs) (length xs)
+   |
+16 | ave xs = div (sum xs) (length xs)
+   |                   ^^
+
+src/First.hs:16:31: error:
+    • Couldn't match expected type ‘t1 a0’ with actual type ‘Int’
+    • In the first argument of ‘length’, namely ‘xs’
+      In the second argument of ‘div’, namely ‘(length xs)’
+      In the expression: div (sum xs) (length xs)
+   |
+16 | ave xs = div (sum xs) (length xs)
+   |                               ^^
+Failed, no modules loaded.
+2022-06-16 15:37:13.24144607
+>>> :e
+   1  module First where
+   2  
+   3  double :: Int -> Int
+   4  double x = x + x
+   5  
+   6  quadruple :: Int -> Int
+   7  quadruple x = double (double x)
+   8  
+   9  factorial :: Integer -> Integer
+  10  factorial n = product [1 .. n]
+  11  
+  12  average :: [Int] -> Int
+  13  average xs = sum xs `div` length xs
+  14  
+  15  ave :: [Int] -> Int
+  16  ave xs = div (sum xs) (length xs)
+  17  
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+Ok, one module loaded.
+2022-06-16 15:38:06.174654616
+>>> average [1,2,3,4,5]
+3
+2022-06-16 15:38:19.447970448
+>>> :t take 3 [1,2,3,4,5]
+take 3 [1,2,3,4,5] :: Num a => [a]
+2022-06-16 15:49:52.978383605
+>>> init [1 .. 5]
+[1,2,3,4]
+2022-06-16 16:07:00.535768382
+>>> :e
+   1  module First where
+   2  
+   3  double :: Int -> Int
+   4  double x = x + x
+   5  
+   6  quadruple :: Int -> Int
+   7  quadruple x = double (double x)
+   8  
+   9  factorial :: Integer -> Integer
+  10  factorial n = product [1 .. n]
+  11  
+  12  average :: [Int] -> Int
+  13  average xs = sum xs `div` length xs
+  14  
+  15  ave :: [Int] -> Int
+  16  ave xs = div (sum xs) (length xs)
+  17  
+  18  myinit :: [a] -> [a]
+  19  myinit (x:[]) = []
+  20  myinit (x:xs) = x : (init xs)
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+Ok, one module loaded.
+2022-06-16 16:14:28.681179791
+>>> myinit [1 .. 5]
+[1,2,3,4]
+2022-06-16 16:14:43.244835774
+>>> myinit []
+*** Exception: src/First.hs:(19,1)-(20,29): Non-exhaustive patterns in function myinit
+
+2022-06-16 16:14:57.461611222
+>>> :q
+Leaving GHCi.

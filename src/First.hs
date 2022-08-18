@@ -1,5 +1,7 @@
 module First where
 
+import Prelude
+
 double :: Int -> Int
 double x = x + x
 
@@ -24,3 +26,9 @@ myconcat xss = [ x | xs <- xss, x <- xs ]
 
 mylength :: [a] -> Int
 mylength xs = sum [ 1 | _ <- xs ]
+
+x :: Int
+x = 1
+y :: Int
+y = 200
+z = x * y
